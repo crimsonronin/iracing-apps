@@ -1,9 +1,9 @@
 // @flow
-import IRacingDriverMapper from './IRacingDriverMapper';
+import IRacingDriverMapper from 'src/modules/IRacing/Drivers/IRacingDriverMapper';
 
 /**
  * @type {IRacingDriverMapper} iRacingDriverMapper
  */
 const iRacingDriverMapper = new IRacingDriverMapper();
 
-export { iRacingDriverMapper };
+export {iRacingDriverMapper};

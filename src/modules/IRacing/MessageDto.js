@@ -1,5 +1,5 @@
 // @flow
-import type DriverDto from './DriverDto';
+import type DriverDto from 'src/modules/IRacing/Drivers/DriverDto';
 
 export default class MessageDto {
     _currentDriver: DriverDto;

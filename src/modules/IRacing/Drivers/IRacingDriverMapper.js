@@ -1,5 +1,5 @@
 // @flow
-import DriverDto from 'src/IRacing/DriverDto';
+import DriverDto from 'src/modules/IRacing/Drivers/DriverDto';
 
 export default class IRacingDriverMapper {
     _convertMultiple = (messages: Array<any>): Array<DriverDto> => {

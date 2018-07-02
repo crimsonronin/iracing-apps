@@ -1,10 +1,10 @@
 // @flow
 import React, { Component } from 'react';
-import BroadcastDetails from './BroadcastDetails';
-import type DriverDto from '../IRacing/DriverDto';
-import { iRacingService } from '../IRacing/IRacingServiceFactory';
-import { iRacingMessageMapper } from '../IRacing/IRacingMessageMapperFactory';
-import { CAMERAS, EVENTS } from '../IRacing/IRacingServiceConstants';
+import BroadcastDetails from 'src/modules/IRacingBroadcast/BroadcastDetails';
+import type DriverDto from 'src/modules/IRacing/Drivers/DriverDto';
+import { iRacingService } from 'src/modules/IRacing/IRacingServiceFactory';
+import { iRacingMessageMapper } from 'src/modules/IRacing/IRacingMessageMapperFactory';
+import { CAMERAS, EVENTS } from 'src/modules/IRacing/IRacingServiceConstants';
 
 type Props = {};
 type State = {

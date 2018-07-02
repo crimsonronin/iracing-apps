@@ -1,6 +1,6 @@
 // @flow
 import EventEmitter from 'events';
-import {COMMANDS, DATA, EVENTS, OPTIONS} from 'src/IRacing/IRacingServiceConstants';
+import {EVENTS, OPTIONS} from 'src/modules/IRacing/IRacingServiceConstants';
 
 export default class IRacingService extends EventEmitter {
     _ws: WebSocket;
@@ -72,25 +72,10 @@ export default class IRacingService extends EventEmitter {
     sendCommand(command: string, ...args: Array<any>): void {
         const request = {
             command,
-            args,
+            args
         };
+
         this._ws.send(JSON.stringify(request));
-    }
-
-    hideUi(): void {
-        this.sendCommand(COMMANDS.CAMERA_SET_STATE, 8);
-    }
-
-    changeCamera(camera: number, driver: ?DriverDto): void {
-        if (driver) {
-            this.sendCommand(COMMANDS.CHANGE_CAMERA_DRIVER, driver ? driver.carNumber : 0, camera, 0);
-        } else {
-            this.sendCommand(COMMANDS.CHANGE_CAMERA_POSITION, 0, camera, 0);
-        }
-    }
-
-    getDriverDetails(): void {
-        this.getData([DATA.DRIVER_DETAILS], []);
     }
 
     getData(requestParams: Array<any> = [], requestParamsOnce: Array<any> = []): void {
@@ -98,7 +83,7 @@ export default class IRacingService extends EventEmitter {
             fps: OPTIONS.FPS,
             readIbt: false,
             requestParams,
-            requestParamsOnce,
+            requestParamsOnce
         };
 
         this._ws.send(JSON.stringify(request));

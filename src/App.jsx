@@ -1,15 +1,10 @@
 // @flow
-import React, { Component } from 'react';
-import IRacingBroadcastContainer from './IRacingBroadcast/IRacingBroadcastContainer';
+import React, {Component} from 'react';
+import HomeScene from 'src/modules/Scenes/HomeScene';
 
 class App extends Component {
     render() {
-        return (
-            <div>
-                <h1>iRacing Camera Rotator</h1>
-                <IRacingBroadcastContainer />
-            </div>
-        );
+        return (<HomeScene/>);
     }
 }
 

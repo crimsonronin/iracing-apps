@@ -2,17 +2,17 @@ const EVENTS = {
     MESSAGE: 'message',
     OPEN: 'open',
     ERROR: 'error',
-    CLOSED: 'closed',
+    CLOSED: 'closed'
 };
 
 const COMMANDS = {
     CHANGE_CAMERA_POSITION: 'cam_switch_pos',
     CHANGE_CAMERA_DRIVER: 'cam_switch_num',
-    CAMERA_SET_STATE: 'cam_set_state',
+    CAMERA_SET_STATE: 'cam_set_state'
 };
 
 const DATA = {
-    DRIVER_DETAILS: 'DriverInfo',
+    DRIVER_DETAILS: 'DriverInfo'
 };
 
 const CAMERAS = {
@@ -35,12 +35,12 @@ const CAMERAS = {
     SCENIC: 17,
     TV_1: 18,
     TV_2: 19,
-    TV_3: 20,
+    TV_3: 20
 };
 
 const OPTIONS = {
     FPS: 1,
-    SERVER: '127.0.0.1:8182',
+    SERVER: '127.0.0.1:8182'
 };
 
-export { EVENTS, COMMANDS, CAMERAS, OPTIONS, DATA };
+export {EVENTS, COMMANDS, CAMERAS, OPTIONS, DATA};

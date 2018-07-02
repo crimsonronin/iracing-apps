@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import type DriverDto from '../IRacing/DriverDto';
+import type DriverDto from 'src/modules/IRacing/Drivers/DriverDto';
 
 type Props = {
     driver: DriverDto,
