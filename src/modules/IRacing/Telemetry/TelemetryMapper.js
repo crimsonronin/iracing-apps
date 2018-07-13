@@ -4,6 +4,7 @@ import has from 'lodash/has';
 import find from 'lodash/find';
 import TelemetryDto from 'src/modules/IRacing/Telemetry/TelemetryDto';
 import {DATA_POINTS} from 'src/modules/IRacing/Telemetry/TelemetryConstants';
+import type IRacingDriverMapper from '../Drivers/IRacingDriverMapper';
 
 export default class IRacingMessageMapper {
     _iRacingDriverMapper: IRacingDriverMapper;

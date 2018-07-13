@@ -1,6 +1,17 @@
 // @flow
 import DriverDto from 'src/modules/IRacing/Drivers/DriverDto';
 
+type DriverData = {
+    UserID: string,
+    UserName: string,
+    AbbrevName: string,
+    IRating: string,
+    LicLevel: string,
+    TeamName: string,
+    ClubName: string,
+    CarNumber: string,
+};
+
 export default class IRacingDriverMapper {
     _convertMultiple = (messages: Array<any>): Array<DriverDto> => {
         const drivers = [];
@@ -11,7 +22,7 @@ export default class IRacingDriverMapper {
 
         return drivers;
     };
-    _convertSingle = (message: any): DriverDto => {
+    _convertSingle = (message: DriverData): DriverDto => {
         const driver = new DriverDto();
         driver.id = message.UserID;
         driver.userName = message.UserName;
@@ -21,6 +32,7 @@ export default class IRacingDriverMapper {
         driver.teamName = message.TeamName;
         driver.clubName = message.ClubName;
         driver.carNumber = message.CarNumber;
+
         return driver;
     };
 

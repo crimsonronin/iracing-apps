@@ -1,10 +1,10 @@
 // @flow
 import IRacingService from 'src/modules/IRacing/IRacingService';
-import {OPTIONS} from 'src/modules/IRacing/IRacingServiceConstants';
+import {webSocketDao} from 'src/modules/Utils/WebSocketDaoFactory';
 
 /**
  * @type {IRacingService} iRacingService
  */
-const iRacingService = new IRacingService(OPTIONS.SERVER);
+const iRacingService = new IRacingService(webSocketDao);
 
 export {iRacingService};

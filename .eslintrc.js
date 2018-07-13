@@ -39,7 +39,7 @@ module.exports = {
         'import/no-extraneous-dependencies': ['off'],
         'import/extensions': ['off'],
 
-        // Recommend not to leave any console.log in your code
+        // Recommend not to leave any console.info in your code
         // Use console.error, console.warn and console.info instead
         // https://eslint.org/docs/rules/no-console
         'no-console': [

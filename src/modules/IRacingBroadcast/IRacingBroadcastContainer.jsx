@@ -31,7 +31,7 @@ export default class IRacingBroadcastContainer extends Component<Props, State> {
     };
 
     componentDidMount() {
-        // start the timers
+        // connect the timers
         iRacingService.on(EVENTS.OPEN, () => {
             this._setStateAsync({ error: false, isLoading: false });
             this._init();
