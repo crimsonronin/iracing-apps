@@ -39,7 +39,7 @@ const CAMERAS = {
 };
 
 const OPTIONS = {
-    FPS: 1,
+    FPS: 30,
     SERVER: '127.0.0.1:8182'
 };
 

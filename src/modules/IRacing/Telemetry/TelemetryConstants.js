@@ -1,8 +1,10 @@
-const DATA_POINTS = {
+export const DATA_POINTS = {
     THROTTLE: 'Throttle',
     BRAKE: 'Brake',
     CLUTCH: 'Clutch'
 };
 
-
-export {DATA_POINTS};
+export const EVENTS = {
+    TELEMETRY: '__all_telemetry__',
+    PEDALS: 'pedals',
+};

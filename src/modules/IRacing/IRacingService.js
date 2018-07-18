@@ -1,16 +1,26 @@
 // @flow
 import EventEmitter from 'events';
-import WebSocketDao from 'src/modules/Utils/WebSocketDao';
-import {OPTIONS} from 'src/modules/IRacing/IRacingServiceConstants';
+import type WebSocketDao from 'src/modules/Utils/WebSocketDao';
+import {EVENTS as WS_EVENTS} from 'src/modules/Utils/WebSocketDao';
+import {OPTIONS, EVENTS} from 'src/modules/IRacing/IRacingServiceConstants';
 
 export default class IRacingService extends EventEmitter {
+    _isConnected = false;
+
     constructor(webSocketDao: WebSocketDao) {
         super();
         this._webSocketDao = webSocketDao;
+        // propagate events
+        this._webSocketDao.on(WS_EVENTS.CONNECTED, () => {
+            this._isConnected = true;
+            this.emit(EVENTS.OPEN);
+        });
+        this._webSocketDao.on(WS_EVENTS.MESSAGE, (data) => this.emit(EVENTS.MESSAGE, data));
     }
 
-    connect(): void {
+    connect(): IRacingService {
         this._webSocketDao.connect();
+        return this;
     }
 
     sendCommand(command: string, ...args: Array<any>): void {
@@ -20,9 +30,10 @@ export default class IRacingService extends EventEmitter {
         };
 
         this._webSocketDao.send(JSON.stringify(request));
+        return this;
     }
 
-    getData(requestParams: Array<any> = [], requestParamsOnce: Array<any> = []): void {
+    getData(requestParams: any[], requestParamsOnce: any []): void {
         const request = {
             fps: OPTIONS.FPS,
             readIbt: false,
@@ -31,5 +42,6 @@ export default class IRacingService extends EventEmitter {
         };
 
         this._webSocketDao.send(JSON.stringify(request));
+        return this;
     }
 }

@@ -1,5 +1,5 @@
 // @flow
-import type PedalsDto from 'src/modules/Iracing/Telemetry/PedalsDto';
+import type PedalsDto from 'src/modules/IRacing/Telemetry/Pedals/PedalsDto';
 
 export default class TelemetryDto {
     _pedals: PedalsDto;

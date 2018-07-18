@@ -1,7 +1,7 @@
 // @flow
 export default class PedalsDto {
     _throttle: number = 0;
-    _break: number = 0;
+    _brake: number = 0;
     _clutch: number = 0;
 
     get throttle(): number {
@@ -12,12 +12,12 @@ export default class PedalsDto {
         this._throttle = value;
     }
 
-    get break(): number {
-        return this._break;
+    get brake(): number {
+        return this._brake;
     }
 
-    set break(value: number) {
-        this._break = value;
+    set brake(value: number) {
+        this._brake = value;
     }
 
     get clutch(): number {

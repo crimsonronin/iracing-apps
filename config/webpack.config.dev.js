@@ -1,13 +1,17 @@
+'use strict';
+
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const paths = require('./paths');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -19,6 +23,9 @@ const publicPath = '/';
 const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
+
+// the HS config to use
+const IRACING_APPS_CONFIG_ENV = process.env.IRACING_APPS_CONFIG_ENV || 'dev.stub';
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -60,7 +67,7 @@ module.exports = {
         // There are also additional JS chunk files if you use code splitting.
         chunkFilename: 'static/js/[name].chunk.js',
         // This is the URL that app is served from. We use "/" in development.
-        publicPath,
+        publicPath: publicPath,
         // Point sourcemap entries to original disk location (format as URL on Windows)
         devtoolModuleFilenameTemplate: info =>
             path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
@@ -83,6 +90,16 @@ module.exports = {
         extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
         alias: {
             src: paths.appSrc,
+
+            // Support React Native Web
+            // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
+            'react-native': 'react-native-web',
+
+            //https://github.com/react-native-web-community/react-native-web-linear-gradient
+            'react-native-linear-gradient': 'react-native-web-linear-gradient',
+
+            //https://github.com/godaddy/svgs
+            'react-native-svg': 'svgs'
         },
         plugins: [
             // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -240,6 +257,13 @@ module.exports = {
         // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
         // You can remove this if you don't use Moment.js:
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+        new CopyWebpackPlugin([
+            {
+                from: `./src/config/config.${IRACING_APPS_CONFIG_ENV}.js`,
+                to: './config.js'
+            }
+        ]),
+        new BundleAnalyzerPlugin({openAnalyzer: false})
     ],
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.
