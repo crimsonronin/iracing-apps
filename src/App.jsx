@@ -1,8 +1,10 @@
 // @flow
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
+import {Router} from 'react-router-dom';
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import config from 'src/config/config';
+import {history} from 'src/modules/Store/HistoryFactory';
 import {store} from 'src/modules/Store/StoreFactory';
 import GlobalContainer from 'src/modules/Scenes/GlobalContainer';
 import {ACTIONS} from './modules/Utils/webSocketMiddleware';
@@ -16,7 +18,9 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <MuiThemeProvider theme={theme}>
-                    <GlobalContainer/>
+                    <Router history={history}>
+                        <GlobalContainer/>
+                    </Router>
                 </MuiThemeProvider>
             </Provider>
         );

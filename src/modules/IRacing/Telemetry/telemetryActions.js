@@ -1,7 +1,7 @@
 // @flow
-import {OPTIONS} from '../IRacingServiceConstants';
-import {EVENTS} from './TelemetryConstants';
-import {ACTIONS} from '../../Utils/webSocketMiddleware';
+import {OPTIONS} from 'src/modules/IRacing/IRacingServiceConstants';
+import {EVENTS} from 'src/modules/IRacing/Telemetry/TelemetryConstants';
+import {ACTIONS} from 'src/modules/Utils/webSocketMiddleware';
 
 export function initTelemetryData(fps: number = OPTIONS.FPS) {
     return {

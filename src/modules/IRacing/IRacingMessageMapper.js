@@ -2,7 +2,6 @@
 import get from 'lodash/get';
 import has from 'lodash/has';
 import find from 'lodash/find';
-import MessageDto from 'src/modules/IRacing/MessageDto';
 import {DATA} from 'src/modules/IRacing/IRacingServiceConstants';
 import type IRacingDriverMapper from 'src/modules/IRacing/Drivers/IRacingDriverMapper';
 
@@ -15,7 +14,7 @@ export default class IRacingMessageMapper {
 
     convert(messageData: any) {
         const data = get(messageData, 'data');
-        const message = new MessageDto();
+        const message = {};
 
         if (has(data, DATA.DRIVER_DETAILS)) {
             // driver data mapper

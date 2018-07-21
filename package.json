@@ -48,8 +48,6 @@
         "html-webpack-plugin": "2.29.0",
         "jest": "23.1.0",
         "lodash": "4.17.10",
-        "mobx": "4.3.0",
-        "mobx-react": "5.1.2",
         "object-assign": "4.1.1",
         "postcss-flexbugs-fixes": "3.2.0",
         "postcss-loader": "2.0.8",
@@ -73,7 +71,7 @@
         "whatwg-fetch": "2.0.3"
     },
     "description": "A boilerplate/skeleton for react projects",
-    "main": "dist/index.html",
+    "main": "build/index.html",
     "jest": {
         "collectCoverageFrom": [
             "src/**/*.{js,jsx,mjs}",

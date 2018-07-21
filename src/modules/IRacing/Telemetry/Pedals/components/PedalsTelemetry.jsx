@@ -12,7 +12,7 @@ type Props = {
     throttle: number,
     brake: number,
     clutch?: number,
-    hasClutch: boolean,
+    hasClutch?: boolean,
 };
 
 const styles = () => ({
@@ -26,7 +26,7 @@ const styles = () => ({
 
 class PedalsTelemetry extends Component<Props> {
     render() {
-        const {classes, throttle, brake, clutch, hasClutch} = this.props;
+        const {classes, throttle, brake, clutch, hasClutch = false} = this.props;
         return (
             <Grid container spacing={0} className={classes.root}>
                 <Grid item xs={12}>
