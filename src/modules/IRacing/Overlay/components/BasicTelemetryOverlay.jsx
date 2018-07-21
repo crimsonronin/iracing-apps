@@ -17,7 +17,6 @@ const styles = () => ({
 class BasicTelemetryOverlay extends Component<Props> {
     render() {
         const {classes} = this.props;
-
         return (
             <Grid container spacing={0} className={classes.root}>
                 <TelemetryContainer/>

@@ -17,7 +17,8 @@ type Props = {
 
 const styles = () => ({
     root: {
-        flexGrow: 1
+        flexGrow: 1,
+        width: 300
     },
     pedal: {
         height: 20

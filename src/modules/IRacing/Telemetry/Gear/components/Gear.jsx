@@ -1,0 +1,33 @@
+// @flow
+import React from 'react';
+import Tab from '@material-ui/core/Tab';
+import {withStyles} from '@material-ui/core/styles';
+
+type Props = {
+    classes: any,
+    gear: string | number,
+};
+
+const styles = (theme) => ({
+    tabRoot: {
+        minWidth: 72,
+        marginRight: theme.spacing.unit
+    },
+    tabSelected: {
+        backgroundColor: theme.palette.secondary.main
+    }
+});
+
+function Gears(props: Props) {
+    const {gear, classes} = props;
+
+    return (
+        <Tab
+            label={gear}
+            value={gear}
+            classes={{root: classes.tabRoot, selected: classes.tabSelected}}
+        />
+    );
+}
+
+export default withStyles(styles)(Gears);

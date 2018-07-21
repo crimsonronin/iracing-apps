@@ -1,21 +1,22 @@
 // @flow
-import get from 'lodash/get';
 import TelemetryDto from 'src/modules/IRacing/Telemetry/TelemetryDto';
-import {DATA_POINTS} from 'src/modules/IRacing/Telemetry/TelemetryConstants';
-import PedalsDto from './Pedals/PedalsDto';
+import type PedalsTelemetryMapper from 'src/modules/IRacing/Telemetry/Pedals/PedalsTelemetryMapper';
+import GearsTelemetryMapper from './Gear/GearsTelemetryMapper';
 
 export default class TelemetryMapper {
+    _pedalsTelemetryMapper: PedalsTelemetryMapper;
+    _gearsTelemetryMapper: GearsTelemetryMapper;
+
+    constructor(pedalsTelemetryMapper: PedalsTelemetryMapper, gearsTelemetryMapper: GearsTelemetryMapper) {
+        this._pedalsTelemetryMapper = pedalsTelemetryMapper;
+        this._gearsTelemetryMapper = gearsTelemetryMapper;
+    }
+
     convert(data: any): TelemetryDto {
         const telemetry = new TelemetryDto();
 
-        // pedals telemetry
-        const pedals = new PedalsDto();
-
-        pedals.throttle = get(data, DATA_POINTS.THROTTLE);
-        pedals.brake = get(data, DATA_POINTS.BRAKE);
-        pedals.clutch = get(data, DATA_POINTS.CLUTCH);
-
-        telemetry.pedals = pedals;
+        telemetry.pedals = this._pedalsTelemetryMapper.convert(data);
+        telemetry.gears = this._gearsTelemetryMapper.convert(data);
 
         return telemetry;
     }
