@@ -4,7 +4,8 @@ import EventEmitter from 'events';
 export const EVENTS = {
     CONNECTED: 'connection',
     DISCONNECTED: 'disconnect',
-    MESSAGE: 'event'
+    MESSAGE: 'event',
+    ERROR: 'error'
 };
 
 export default class WebSocketDao extends EventEmitter {
@@ -13,7 +14,7 @@ export default class WebSocketDao extends EventEmitter {
     _autoReconnectInterval: number = 5 * 1000;
 
     onOpen = (): void => {
-        console.info('WebSocketDao: connected');
+        console.info(`WebSocketDao::onOpen connected to ${this._host}`);
         this.emit(EVENTS.CONNECTED);
     };
 
@@ -31,7 +32,7 @@ export default class WebSocketDao extends EventEmitter {
 
         switch (code) {
             case 'ECONNREFUSED':
-                console.info('WebSocketDao: closed');
+                console.error('WebSocketDao::onError connection refused', code);
                 this.reconnect();
                 break;
             default:
@@ -48,7 +49,7 @@ export default class WebSocketDao extends EventEmitter {
                 this.emit(EVENTS.CLOSED, event);
                 break;
             default:
-                console.info('WebSocketDao: closed');
+                console.info('WebSocketDao::onClose closed connection');
                 this.reconnect();
                 break;
         }
@@ -76,7 +77,7 @@ export default class WebSocketDao extends EventEmitter {
 
         setTimeout(
             () => {
-                console.info('WebSocketDao: reconnecting...');
+                console.info('WebSocketDao::reconnect reconnecting...');
                 this.connect();
             },
             this._autoReconnectInterval
@@ -84,6 +85,11 @@ export default class WebSocketDao extends EventEmitter {
     }
 
     send(data: Array<any>): void {
-        this._socket.send(data);
+        console.info('WebSocketDao::send sending data', data);
+        this._socket.send(JSON.stringify(data));
+    }
+
+    close(): void {
+        this._socket.close();
     }
 }

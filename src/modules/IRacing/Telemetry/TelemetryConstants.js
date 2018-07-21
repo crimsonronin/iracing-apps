@@ -6,5 +6,4 @@ export const DATA_POINTS = {
 
 export const EVENTS = {
     TELEMETRY: '__all_telemetry__',
-    PEDALS: 'pedals',
 };

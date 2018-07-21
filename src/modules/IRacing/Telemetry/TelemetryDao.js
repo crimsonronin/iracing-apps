@@ -17,14 +17,16 @@ export default class TelemetryDao extends EventEmitter {
         this._iRacingService = iRacingService;
 
         this._iRacingService.on(SERVICE_EVENTS.MESSAGE, (data) => {
-            const {Throttle, Brake, Clutch} = data.data;
+            if (data && data.data) {
+                const {Throttle, Brake, Clutch} = data.data;
 
-            const pedals = new PedalsDto();
-            pedals.throttle = Throttle;
-            pedals.brake = Brake;
-            pedals.clutch = Clutch;
+                const pedals = new PedalsDto();
+                pedals.throttle = Throttle;
+                pedals.brake = Brake;
+                pedals.clutch = Clutch;
 
-            this.emit(EVENTS.PEDALS, pedals);
+                this.emit(EVENTS.PEDALS, pedals);
+            }
         });
     }
 
