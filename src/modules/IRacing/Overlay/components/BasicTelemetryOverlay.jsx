@@ -1,7 +1,8 @@
 // @flow
 import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import {withStyles} from '@material-ui/core/styles';
 import Telemetry from 'src/modules/IRacing/Telemetry/components/Telemetry';
 import GearList from 'src/modules/IRacing/Telemetry/Gear/components/GearList';
@@ -19,7 +20,7 @@ const styles = () => ({
         flexGrow: 1
     },
     row1: {
-        display: 'flex',
+        display: 'flex'
     }
 });
 
@@ -31,22 +32,24 @@ export class BasicTelemetryOverlay extends Component<Props> {
         return (
             <Grid container spacing={0}>
                 <Grid container spacing={0} className={classes.row1}>
-                    <Grid spacing={0} xs={3}>
-                        <Paper className={classes.gears}>
-                            <Speed speed={speed.speed} uom={speed.uom}/>
-                        </Paper>
+                    <Grid item xs={4}>
+                        <Card className={classes.gears}>
+                            <CardContent className={classes.content}>
+                                <Speed speed={speed.speed} uom={speed.uom}/>
+                            </CardContent>
+                        </Card>
                     </Grid>
-                    <Grid spacing={0} item xs={9}>
-                        <Paper className={classes.pedals}>
-                            <Telemetry throttle={pedals.throttle} brake={pedals.brake} clutch={pedals.clutch}/>
-                        </Paper>
+                    <Grid item xs={8}>
+                        <Card className={classes.gears}>
+                            <CardContent className={classes.content}>
+                                <Telemetry throttle={pedals.throttle} brake={pedals.brake} clutch={pedals.clutch}/>
+                            </CardContent>
+                        </Card>
                     </Grid>
                 </Grid>
                 <Grid container spacing={0}>
-                    <Grid spacing={0} xs={12}>
-                        <Paper className={classes.gears}>
-                            <GearList currentGear={gears.currentGear} gears={gears.allGears}/>
-                        </Paper>
+                    <Grid item xs={12}>
+                        <GearList currentGear={gears.currentGear} gears={gears.allGears}/>
                     </Grid>
                 </Grid>
             </Grid>

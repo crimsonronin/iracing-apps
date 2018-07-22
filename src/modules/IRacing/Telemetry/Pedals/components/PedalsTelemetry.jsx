@@ -29,7 +29,7 @@ class PedalsTelemetry extends Component<Props> {
         const {classes, throttle, brake, clutch, hasClutch = false} = this.props;
         return (
             <Grid container spacing={0} className={classes.root}>
-                <Grid item={12} className={classes.root}>
+                <Grid item xs={12} className={classes.root}>
                     <Throttle
                         value={throttle * 100}
                     />

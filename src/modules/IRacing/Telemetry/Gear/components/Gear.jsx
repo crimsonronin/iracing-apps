@@ -10,7 +10,7 @@ type Props = {
 
 const styles = (theme) => ({
     tabRoot: {
-        minWidth: 20,
+        minWidth: 40,
     },
     tabSelected: {
         backgroundColor: '#000'

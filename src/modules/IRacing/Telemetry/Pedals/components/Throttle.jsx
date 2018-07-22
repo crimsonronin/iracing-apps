@@ -4,10 +4,10 @@ import Pedal from 'src/modules/IRacing/Telemetry/Pedals/components/Pedal';
 
 const styles = (theme) => ({
     barColorPrimary: {
-        backgroundColor: theme.palette.primary.dark
+        backgroundColor: theme.palette.primary.main
     },
     colorPrimary: {
-        border: `2px solid ${theme.palette.primary.dark}`,
+        border: `2px solid ${theme.palette.primary.main}`,
         backgroundColor: 'inherit',
     }
 });

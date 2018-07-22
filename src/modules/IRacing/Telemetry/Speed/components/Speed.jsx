@@ -1,7 +1,5 @@
 // @flow
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import {withStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import {UOM} from 'src/modules/IRacing/Telemetry/Speed/SpeedDto';
@@ -28,7 +26,12 @@ const styles = () => ({
         display: 'flex',
         flexDirection: 'row'
     },
+    speed: {
+        color: '#fff',
+        fontWeight: 700
+    },
     uom: {
+        color: '#fff',
         transform: 'rotate(-90deg)',
         '-webkit-transform': 'rotate(-90deg)',
         '-moz-transform': 'rotate(-90deg)',
@@ -43,14 +46,14 @@ function Speed(props: Props) {
     const formattedSpeed = parseInt(SPEED_MODIFIER * speed, 10);
 
     return (
-        <Card className={classes.card}>
+        <div className={classes.card}>
             <div className={classes.details}>
-                <CardContent className={classes.content}>
-                    <Typography variant="headline">{formattedSpeed}</Typography>
-                    <Typography className={classes.uom}>{uom}</Typography>
-                </CardContent>
+                <div className={classes.content}>
+                    <Typography variant="display1" className={classes.speed}>{formattedSpeed}</Typography>
+                    <Typography variant="subheading" className={classes.uom}>{uom}</Typography>
+                </div>
             </div>
-        </Card>
+        </div>
     );
 }
 

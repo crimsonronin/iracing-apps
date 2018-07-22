@@ -11,13 +11,12 @@ type Props = {
     allGears: (string | number)[],
 };
 
-const styles = () => ({
+const styles = (theme) => ({
     root: {
         flexGrow: 1
     },
     tabsIndicator: {
-
-        backgroundColor: '#1890ff'
+        backgroundColor: theme.palette.secondary.main
     }
 });
 
