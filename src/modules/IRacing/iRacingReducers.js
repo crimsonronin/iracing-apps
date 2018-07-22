@@ -10,7 +10,7 @@ export const TYPES = {
     WEEKEND: 'weekend'
 };
 
-export const STATE_NAMESPACE = 'iracing';
+export const NAMESPACE = 'iracing';
 
 export const iRacingReducers = (state = {}, action) => {
     const {payload} = action;

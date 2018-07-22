@@ -1,17 +1,7 @@
 // @flow
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import {Route, Switch} from 'react-router-dom';
-import {STATE_NAMESPACE} from 'src/modules/Utils/webSocketReducer';
 import {Route as RouteType, routeConfig} from 'src/modules/Routing/routeConfig';
-
-export const mapStateToProps = (state: any) => ({
-    isWebsocketConnected: state[STATE_NAMESPACE].isConnected
-});
-
-type Props = {
-    isWebsocketConnected: boolean,
-};
 
 const RouteWithSubRoutes = (route: RouteType) => {
     const getSubRoute = (subRoute: RouteType) => (
@@ -41,22 +31,16 @@ const RouteWithSubRoutes = (route: RouteType) => {
 };
 
 
-class GlobalContainer extends Component<Props> {
+class Routes extends Component<Props> {
     render() {
-        const {isWebsocketConnected} = this.props;
-
-        if (isWebsocketConnected) {
-            return (
-                <Switch location={location}>
-                    {routeConfig.map(route => (
-                        <RouteWithSubRoutes key={route.name} {...route} />
-                    ))}
-                </Switch>
-            );
-        }
-
-        return null;
+        return (
+            <Switch location={location}>
+                {routeConfig.map(route => (
+                    <RouteWithSubRoutes key={route.name} {...route} />
+                ))}
+            </Switch>
+        );
     }
 }
 
-export default connect(mapStateToProps)(GlobalContainer);
+export default Routes;

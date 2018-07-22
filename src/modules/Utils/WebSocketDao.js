@@ -28,15 +28,15 @@ export default class WebSocketDao extends EventEmitter {
     };
 
     onError = (event: Event): void => {
-        const {code} = event;
+        const {readyState} = event.target;
 
-        switch (code) {
-            case 'ECONNREFUSED':
-                console.error('WebSocketDao::onError connection refused', code);
+        switch (readyState) {
+            case 3:
+                console.warn('WebSocketDao::onError connection refused');
                 this.reconnect();
                 break;
             default:
-                this.emit(EVENTS.ERROR, event);
+                console.error('WebSocketDao::onError', event);
                 break;
         }
     };

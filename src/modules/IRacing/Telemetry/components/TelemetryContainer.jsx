@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import {initTelemetryData} from 'src/modules/IRacing/Telemetry/telemetryActions';
 import Telemetry from 'src/modules/IRacing/Telemetry/components/Telemetry';
 import GearList from 'src/modules/IRacing/Telemetry/Gear/components/GearList';
-import {STATE_NAMESPACE as iracing, TYPES} from 'src/modules/IRacing/iRacingReducers';
+import {NAMESPACE as iracing, TYPES} from 'src/modules/IRacing/iRacingReducers';
 import type TelemetryDto from 'src/modules/IRacing/Telemetry/TelemetryDto';
 import {withStyles} from '@material-ui/core/styles/index';
 
