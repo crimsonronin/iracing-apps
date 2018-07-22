@@ -28,13 +28,11 @@ const styles = () => ({
     root: {},
     pedals: {
         flexGrow: 1,
-        width: 500,
         padding: `5px 10px`,
         margin: `10px 0`
     },
     gears: {
         flexGrow: 1,
-        width: 500,
         margin: `10px 0`
     }
 });

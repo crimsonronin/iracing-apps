@@ -17,6 +17,9 @@ type Props = {
 const styles = () => ({
     root: {
         flexGrow: 1
+    },
+    row1: {
+        display: 'flex',
     }
 });
 
@@ -27,20 +30,24 @@ export class BasicTelemetryOverlay extends Component<Props> {
 
         return (
             <Grid container spacing={0}>
-                <Grid container spacing={0}>
-                    <Paper className={classes.pedals}>
-                        <Telemetry throttle={pedals.throttle} brake={pedals.brake} clutch={pedals.clutch}/>
-                    </Paper>
+                <Grid container spacing={0} className={classes.row1}>
+                    <Grid spacing={0} xs={3}>
+                        <Paper className={classes.gears}>
+                            <Speed speed={speed.speed} uom={speed.uom}/>
+                        </Paper>
+                    </Grid>
+                    <Grid spacing={0} item xs={9}>
+                        <Paper className={classes.pedals}>
+                            <Telemetry throttle={pedals.throttle} brake={pedals.brake} clutch={pedals.clutch}/>
+                        </Paper>
+                    </Grid>
                 </Grid>
                 <Grid container spacing={0}>
-                    <Paper className={classes.gears}>
-                        <GearList currentGear={gears.currentGear} gears={gears.allGears}/>
-                    </Paper>
-                </Grid>
-                <Grid container spacing={0}>
-                    <Paper className={classes.gears}>
-                        <Speed speed={speed.speed} uom={speed.uom}/>
-                    </Paper>
+                    <Grid spacing={0} xs={12}>
+                        <Paper className={classes.gears}>
+                            <GearList currentGear={gears.currentGear} gears={gears.allGears}/>
+                        </Paper>
+                    </Grid>
                 </Grid>
             </Grid>
         );

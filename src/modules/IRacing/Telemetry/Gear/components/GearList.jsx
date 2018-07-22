@@ -13,12 +13,16 @@ type Props = {
 
 const styles = () => ({
     root: {
-        flexGrow: 1,
+        flexGrow: 1
+    },
+    tabsIndicator: {
+
+        backgroundColor: '#1890ff'
     }
 });
 
 function GearList(props: Props) {
-    const {currentGear, allGears = ['R', 'N', 1, 2, 3, 4, 5, 6, 7]} = props;
+    const {classes, currentGear, allGears = ['R', 'N', 1, 2, 3, 4, 5, 6, 7]} = props;
 
     const gearList = allGears.map((gear) => <Gear key={gear} gear={gear}/>);
 
@@ -31,6 +35,7 @@ function GearList(props: Props) {
                 indicatorColor="secondary"
                 textColor="secondary"
                 fullWidth
+                classes={{indicator: classes.tabsIndicator}}
             >
                 {gearList}
             </Tabs>

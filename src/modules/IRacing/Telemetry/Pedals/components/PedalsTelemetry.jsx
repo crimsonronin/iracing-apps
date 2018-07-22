@@ -1,7 +1,6 @@
 // @flow
 import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Pedal from 'src/modules/IRacing/Telemetry/Pedals/components/Pedal';
 import Throttle from 'src/modules/IRacing/Telemetry/Pedals/components/Throttle';
 import Brake from 'src/modules/IRacing/Telemetry/Pedals/components/Brake';
@@ -18,10 +17,10 @@ type Props = {
 const styles = () => ({
     root: {
         flexGrow: 1,
-        width: 300
+        width: '100%'
     },
     pedal: {
-        height: 20
+        height: 25
     }
 });
 
@@ -30,28 +29,18 @@ class PedalsTelemetry extends Component<Props> {
         const {classes, throttle, brake, clutch, hasClutch = false} = this.props;
         return (
             <Grid container spacing={0} className={classes.root}>
-                <Grid item xs={12}>
-                    <Typography variant="subheading" align="left">
-                        Throttle
-                        <Throttle
-                            value={throttle * 100}
-                        />
-                    </Typography>
-                </Grid>
-                <Grid item xs={12}>
-                    <Typography variant="subheading" align="left">
-                        Brake
-                        <Brake
-                            value={brake * 100}
-                        />
-                    </Typography>
-                </Grid>
+                <Grid item={12} className={classes.root}>
+                    <Throttle
+                        value={throttle * 100}
+                    />
+                    <Brake
+                        value={brake * 100}
+                    />
 
-                {hasClutch && clutch && (
-                    <Grid item xs={12}>
+                    {hasClutch && clutch && (
                         <Pedal value={clutch}/>
-                    </Grid>
-                )}
+                    )}
+                </Grid>
             </Grid>
         );
     }

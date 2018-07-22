@@ -19,7 +19,7 @@ function HomeScene(props: Props) {
     return (
         <div className={classes.root}>
             <Grid container spacing={0}>
-                <Grid item xs={3}>
+                <Grid item xs={12}>
                     <BasicTelemetry/>
                 </Grid>
             </Grid>

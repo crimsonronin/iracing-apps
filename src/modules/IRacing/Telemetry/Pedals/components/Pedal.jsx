@@ -14,11 +14,11 @@ type Props = {
 const styles = () => ({
     root: {
         flexGrow: 1,
-        height: 20,
+        height: 25,
         margin: '5px 0'
     },
     bar: {
-        height: 20
+        height: 25
     }
 });
 
