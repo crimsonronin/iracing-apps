@@ -20,7 +20,9 @@ const styles = () => ({
     },
     details: {
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        position: 'relative',
+        right: '-4%',
     },
     content: {
         display: 'flex',
@@ -29,7 +31,7 @@ const styles = () => ({
     speed: {
         color: '#fff',
         fontWeight: 700,
-        fontSize: '7vw',
+        fontSize: '9vw',
     },
     uom: {
         color: '#fff',
@@ -39,7 +41,7 @@ const styles = () => ({
         textTransform: 'uppercase',
         position: 'relative',
         left: 10,
-        fontSize: '3vw',
+        fontSize: '4vw',
     }
 });
 

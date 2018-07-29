@@ -5,7 +5,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {withStyles} from '@material-ui/core/styles';
 import PedalsTelemetry from 'src/modules/IRacing/Telemetry/Pedals/components/PedalsTelemetry';
-import Telemetry from 'src/modules/IRacing/Telemetry/components/Telemetry';
 import GearList from 'src/modules/IRacing/Telemetry/Gear/components/GearList';
 import Speed from 'src/modules/IRacing/Telemetry/Speed/components/Speed';
 import type TelemetryDto from '../../Telemetry/TelemetryDto';

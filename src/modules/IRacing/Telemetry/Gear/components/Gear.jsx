@@ -10,10 +10,10 @@ type Props = {
 
 const styles = (theme) => ({
     tabRoot: {
-        minWidth: 40,
+        minWidth: 40
     },
-    tabSelected: {
-        backgroundColor: '#000'
+    label: {
+        fontSize: '6vw'
     }
 });
 
@@ -24,7 +24,7 @@ function Gears(props: Props) {
         <Tab
             label={gear}
             value={gear}
-            classes={{root: classes.tabRoot, selected: classes.tabSelected}}
+            classes={{root: classes.tabRoot, label: classes.label}}
         />
     );
 }

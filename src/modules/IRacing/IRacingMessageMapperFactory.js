@@ -1,10 +1,10 @@
 // @flow
-import {iRacingDriverMapper} from 'src/modules/IRacing/Drivers/IRacingDriverMapperFactory';
+import {diverMapper} from 'src/modules/IRacing/Drivers/DiverMapperFactory';
 import IRacingMessageMapper from 'src/modules/IRacing/IRacingMessageMapper';
 
 /**
  * @type {IRacingMessageMapper} iRacingMessageMapper
  */
-const iRacingMessageMapper = new IRacingMessageMapper(iRacingDriverMapper);
+const iRacingMessageMapper = new IRacingMessageMapper(diverMapper);
 
 export {iRacingMessageMapper};

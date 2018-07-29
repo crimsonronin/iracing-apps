@@ -7,8 +7,7 @@ const styles = (theme) => ({
         backgroundColor: theme.palette.secondary.main
     },
     colorPrimary: {
-        // border: `2px solid ${theme.palette.secondary.main}`,
-        backgroundColor: 'inherit',
+        backgroundColor: 'rgba(0,0,0,0.30)',
     }
 });
 

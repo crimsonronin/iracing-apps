@@ -17,6 +17,9 @@ const styles = (theme) => ({
     },
     tabsIndicator: {
         backgroundColor: theme.palette.secondary.main
+    },
+    flexContainer: {
+        justifyContent: 'space-evenly'
     }
 });
 
@@ -34,7 +37,7 @@ function GearList(props: Props) {
                 indicatorColor="secondary"
                 textColor="secondary"
                 fullWidth
-                classes={{indicator: classes.tabsIndicator}}
+                classes={{indicator: classes.tabsIndicator, flexContainer: classes.flexContainer}}
             >
                 {gearList}
             </Tabs>

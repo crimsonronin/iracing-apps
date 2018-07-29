@@ -11,4 +11,4 @@ export function initTelemetryData(fps: number = OPTIONS.FPS) {
             requestParams: [EVENTS.TELEMETRY]
         }
     };
-};
+}

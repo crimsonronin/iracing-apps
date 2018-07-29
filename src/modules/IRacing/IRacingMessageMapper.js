@@ -3,12 +3,12 @@ import get from 'lodash/get';
 import has from 'lodash/has';
 import find from 'lodash/find';
 import {DATA} from 'src/modules/IRacing/IRacingServiceConstants';
-import type IRacingDriverMapper from 'src/modules/IRacing/Drivers/IRacingDriverMapper';
+import type DiverMapper from 'src/modules/IRacing/Drivers/DiverMapper';
 
 export default class IRacingMessageMapper {
-    _iRacingDriverMapper: IRacingDriverMapper;
+    _iRacingDriverMapper: DiverMapper;
 
-    constructor(iRacingDriverMapper: IRacingDriverMapper) {
+    constructor(iRacingDriverMapper: DiverMapper) {
         this._iRacingDriverMapper = iRacingDriverMapper;
     }
 

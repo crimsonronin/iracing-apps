@@ -12,7 +12,7 @@ type DriverData = {
     CarNumber: string,
 };
 
-export default class IRacingDriverMapper {
+export default class DiverMapper {
     _convertMultiple = (messages: Array<any>): Array<DriverDto> => {
         const drivers = [];
 

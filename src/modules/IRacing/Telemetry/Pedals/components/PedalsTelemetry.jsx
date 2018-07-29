@@ -15,18 +15,20 @@ type Props = {
     hasClutch?: boolean,
 };
 
-const styles = () => ({
+const styles = (theme) => ({
     root: {
         width: '100%',
         height: '100%',
-        padding: '24px'
+        padding: '10px 20px'
     },
     throttle: {
         height: '100%'
     },
-    brake: {},
+    brake: {
+        height: '100%'
+    },
     throttleContainer: {
-        marginBottom: 20,
+        marginBottom: 10,
     },
     pedalLabelContainer: {
         display: 'flex',
@@ -37,17 +39,19 @@ const styles = () => ({
         width: '100%',
     },
     brakeContainer: {
+        marginBottom: 0,
     },
     pedalLabel: {
         color: '#fff',
-        // transform: 'rotate(-90deg)',
-        // '-webkit-transform': 'rotate(-90deg)',
-        // '-moz-transform': 'rotate(-90deg)',
         textTransform: 'uppercase',
         textAlign: 'left',
         position: 'relative',
         fontSize: '4vw',
-        lineHeight: '4vw'
+        lineHeight: '4vw',
+        [theme.breakpoints.down('md')]: {
+            fontSize: '3.3vw',
+            lineHeight: '3.3vw',
+        }
     }
 });
 
@@ -68,12 +72,12 @@ class PedalsTelemetry extends Component<Props> {
                     </Grid>
                 </Grid>
                 <Grid container spacing={0} className={classes.brakeContainer}>
-                    <Grid item xs={4}>
+                    <Grid item xs={4} className={classes.pedalLabelContainer}>
                         <Typography variant="subheading" className={classes.pedalLabel}>Brake</Typography>
                     </Grid>
                     <Grid item xs={8}>
                         <Brake
-                            classes={{root: classes.throttle}}
+                            classes={{root: classes.brake}}
                             value={brake * 100}
                         />
                     </Grid>
