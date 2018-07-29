@@ -15,11 +15,14 @@ const styles = () => ({
     root: {
         flexGrow: 1,
         minHeight: 25,
-        margin: 0
+        margin: 0,
+        height: '100%',
     },
     bar: {
         minHeight: 25
-    }
+    },
+    barColorPrimary: {},
+    colorPrimary: {}
 });
 
 function Pedal(props: Props) {

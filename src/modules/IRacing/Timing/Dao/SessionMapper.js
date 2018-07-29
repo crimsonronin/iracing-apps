@@ -1,19 +1,9 @@
 // @flow
 import DriverDto from 'src/modules/IRacing/Drivers/DriverDto';
+import type {DriverData} from 'src/modules/IRacing/Drivers/Dao/DriverInfoData';
 
-type DriverData = {
-    UserID: string,
-    UserName: string,
-    AbbrevName: string,
-    IRating: string,
-    LicLevel: string,
-    TeamName: string,
-    ClubName: string,
-    CarNumber: string,
-};
-
-export default class DiverMapper {
-    _convertMultiple = (messages: Array<any>): Array<DriverDto> => {
+export default class SessionMapper {
+    _convertMultiple = (messages: DriverData[]): DriverDto[] => {
         const drivers = [];
 
         messages.forEach((message) => {
@@ -22,21 +12,21 @@ export default class DiverMapper {
 
         return drivers;
     };
+
     _convertSingle = (message: DriverData): DriverDto => {
         const driver = new DriverDto();
         driver.id = message.UserID;
-        driver.userName = message.UserName;
-        driver.nickName = message.AbbrevName;
+        driver.username = message.UserName;
+        driver.nickname = message.AbbrevName;
         driver.iRating = message.IRating;
         driver.license = message.LicLevel;
         driver.teamName = message.TeamName;
-        driver.clubName = message.ClubName;
         driver.carNumber = message.CarNumber;
 
         return driver;
     };
 
-    convert(message: any | Array<any>): DriverDto | Array<DriverDto> {
+    convert(message: DriverData | DriverData[]): DriverDto | DriverDto[] {
         if (message instanceof Array) {
             return this._convertMultiple(message);
         }

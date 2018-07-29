@@ -1,12 +1,11 @@
 // @flow
 export default class DriverDto {
     _id: string;
-    _userName: string;
-    _nickName: string;
+    _username: string;
+    _nickname: string;
     _iRating: number;
     _license: number;
     _teamName: string;
-    _clubName: string;
     _carNumber: string;
 
     get id(): string {
@@ -17,20 +16,20 @@ export default class DriverDto {
         this._id = value;
     }
 
-    get userName(): string {
-        return this._userName;
+    get username(): string {
+        return this._username;
     }
 
-    set userName(value: string) {
-        this._userName = value;
+    set username(value: string) {
+        this._username = value;
     }
 
-    get nickName(): string {
-        return this._nickName;
+    get nickname(): string {
+        return this._nickname;
     }
 
-    set nickName(value: string) {
-        this._nickName = value;
+    set nickname(value: string) {
+        this._nickname = value;
     }
 
     get iRating(): number {
@@ -55,14 +54,6 @@ export default class DriverDto {
 
     set teamName(value: string) {
         this._teamName = value;
-    }
-
-    get clubName(): string {
-        return this._clubName;
-    }
-
-    set clubName(value: string) {
-        this._clubName = value;
     }
 
     get carNumber(): string {

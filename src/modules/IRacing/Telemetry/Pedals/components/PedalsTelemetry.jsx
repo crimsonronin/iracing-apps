@@ -66,7 +66,6 @@ class PedalsTelemetry extends Component<Props> {
                     </Grid>
                     <Grid item xs={8}>
                         <Throttle
-                            classes={{root: classes.throttle}}
                             value={throttle * 100}
                         />
                     </Grid>
@@ -77,7 +76,6 @@ class PedalsTelemetry extends Component<Props> {
                     </Grid>
                     <Grid item xs={8}>
                         <Brake
-                            classes={{root: classes.brake}}
                             value={brake * 100}
                         />
                     </Grid>

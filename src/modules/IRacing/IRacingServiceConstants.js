@@ -5,14 +5,18 @@ const EVENTS = {
     CLOSED: 'closed'
 };
 
+const DATA = {
+    DRIVER: 'DriverInfo',
+    QUALIFYING: 'QualifyResultsInfo',
+    SESSION: 'SessionInfo',
+    TELEMETRY: 'AirDensity'
+};
+
+// TODO move to camera service
 const COMMANDS = {
     CHANGE_CAMERA_POSITION: 'cam_switch_pos',
     CHANGE_CAMERA_DRIVER: 'cam_switch_num',
     CAMERA_SET_STATE: 'cam_set_state'
-};
-
-const DATA = {
-    DRIVER_DETAILS: 'DriverInfo'
 };
 
 const CAMERAS = {

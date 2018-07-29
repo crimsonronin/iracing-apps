@@ -1,9 +1,4 @@
-export const DATA_POINTS = {
-    THROTTLE: 'Throttle',
-    BRAKE: 'Brake',
-    CLUTCH: 'Clutch'
-};
-
+// TODO maybe we move these to the iracing service
 export const EVENTS = {
     TELEMETRY: '__all_telemetry__',
 };
