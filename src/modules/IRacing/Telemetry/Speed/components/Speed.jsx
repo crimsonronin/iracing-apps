@@ -28,20 +28,23 @@ const styles = () => ({
     },
     speed: {
         color: '#fff',
-        fontWeight: 700
+        fontWeight: 700,
+        fontSize: '7vw',
     },
     uom: {
         color: '#fff',
         transform: 'rotate(-90deg)',
         '-webkit-transform': 'rotate(-90deg)',
         '-moz-transform': 'rotate(-90deg)',
+        textTransform: 'uppercase',
         position: 'relative',
-        left: 5
+        left: 10,
+        fontSize: '3vw',
     }
 });
 
 function Speed(props: Props) {
-    const {speed = 0, uom = UOM.KPH, classes} = props;
+    const {speed = 0, uom = UOM.KMH, classes} = props;
 
     const formattedSpeed = parseInt(SPEED_MODIFIER * speed, 10);
 

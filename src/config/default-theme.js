@@ -16,19 +16,33 @@ export default {
     overrides: {
         MuiCard: {
             root: {
-                backgroundColor: 'rgba(0,0,0,0.5)',
-                borderRadius: 0,
+                backgroundColor: 'rgba(0,0,0,0.65)',
+                borderRadius: 10,
                 boxShadow: 'none',
-                margin: 5,
-                '&:after': {
-                    transform: 'skewY(-45deg)',
-                    zIndex: '-1'
+                height: '100%'
+            }
+        },
+        MuiCardContent: {
+            root: {
+                paddingBottom: 0,
+                paddingLeft: '0 !important',
+                paddingRight: '0 !important',
+                paddingTop: 0,
+                display: 'flex',
+                justifyContent: 'center',
+                textAlign: 'center',
+                flexDirection: 'column',
+                height: '100%',
+                padding: 0,
+                '&:last-child': {
+                    paddingBottom: 0
                 }
             }
         },
         MuiTabs: {
             root: {
-                backgroundColor: 'rgba(0,0,0,0.5)'
+                borderRadius: 10,
+                backgroundColor: 'rgba(0,0,0,0.65)'
             },
             indicator: {
                 height: '100%'
@@ -37,11 +51,11 @@ export default {
         MuiTab: {
             root: {
                 backgroundColor: 'none',
-                zIndex: 10,
+                zIndex: 10
             },
             textColorInherit: {
-                color: '#fff',
-            },
+                color: '#fff'
+            }
         }
     }
 };

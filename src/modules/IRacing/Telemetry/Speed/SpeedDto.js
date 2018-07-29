@@ -1,11 +1,11 @@
 // @flow
 export const UOM = {
-    KPH: 'kph',
+    KMH: 'kmh',
     MPH: 'mph'
 };
 export default class SpeedDto {
     _speed: number = 0;
-    _uom: UOM = UOM.KPH;
+    _uom: UOM = UOM.KMH;
 
     get speed(): number {
         return this._speed;

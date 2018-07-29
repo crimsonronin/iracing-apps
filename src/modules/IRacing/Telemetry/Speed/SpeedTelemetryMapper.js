@@ -11,7 +11,7 @@ export default class SpeedTelemetryMapper {
         const speed = new SpeedDto();
 
         speed.speed = get(data, DATA_POINTS.SPEED);
-        speed.uom = UOM.KPH;
+        speed.uom = UOM.KMH;
 
         return speed;
     }

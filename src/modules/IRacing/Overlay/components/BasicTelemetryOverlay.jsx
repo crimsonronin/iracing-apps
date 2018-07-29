@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {withStyles} from '@material-ui/core/styles';
+import PedalsTelemetry from 'src/modules/IRacing/Telemetry/Pedals/components/PedalsTelemetry';
 import Telemetry from 'src/modules/IRacing/Telemetry/components/Telemetry';
 import GearList from 'src/modules/IRacing/Telemetry/Gear/components/GearList';
 import Speed from 'src/modules/IRacing/Telemetry/Speed/components/Speed';
@@ -20,8 +21,16 @@ const styles = () => ({
         flexGrow: 1
     },
     row1: {
-        display: 'flex'
-    }
+        marginBottom: 5
+    },
+    gears: {
+        marginRight: 5,
+        height: '100%',
+    },
+    content: {
+        // padding: 0
+    },
+    pedals: {}
 });
 
 export class BasicTelemetryOverlay extends Component<Props> {
@@ -40,9 +49,9 @@ export class BasicTelemetryOverlay extends Component<Props> {
                         </Card>
                     </Grid>
                     <Grid item xs={8}>
-                        <Card className={classes.gears}>
+                        <Card className={classes.pedals}>
                             <CardContent className={classes.content}>
-                                <Telemetry throttle={pedals.throttle} brake={pedals.brake} clutch={pedals.clutch}/>
+                                <PedalsTelemetry throttle={pedals.throttle} brake={pedals.brake} clutch={pedals.clutch}/>
                             </CardContent>
                         </Card>
                     </Grid>
