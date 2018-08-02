@@ -16,6 +16,7 @@ export default class DiverMapper {
     _convertSingle = (message: DriverData): DriverDto => {
         const driver = new DriverDto();
         driver.id = message.UserID;
+        driver.sessionId = message.CarIdx;
         driver.username = message.UserName;
         driver.nickname = message.AbbrevName;
         driver.iRating = message.IRating;

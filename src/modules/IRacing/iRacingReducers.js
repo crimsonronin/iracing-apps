@@ -2,7 +2,9 @@ import {ACTIONS} from '../Utils/webSocketMiddleware';
 import {iRacingMessageHelper} from 'src/modules/IRacing/IRacingMessageHelperFactory';
 import {diverMapper} from 'src/modules/IRacing/Drivers/Dao/DiverMapperFactory';
 import {driverDaoHelper} from 'src/modules/IRacing/Drivers/Dao/DriverDaoHelperFactory';
-import {telemetryMapper} from 'src/modules/IRacing/Telemetry/TelemetryMapperFactory';
+import {telemetryMapper} from 'src/modules/IRacing/Telemetry/Dao/TelemetryMapperFactory';
+import {sessionMapper} from 'src/modules/IRacing/Session/Dao/SessionMapperFactory';
+import {sessionDaoHelper} from 'src/modules/IRacing/Session/Dao/SessionDaoHelperFactory';
 
 export const TYPES = {
     CAMERA: 'camera',
@@ -14,6 +16,13 @@ export const TYPES = {
     QUALIFYING: 'qualifying',
     WEEKEND: 'weekend'
 };
+
+export type Action = {
+    type: string,
+    payload: {
+        data: SessionInfoData | DriverInfoData | any
+    }
+}
 
 export const NAMESPACE = 'iracing';
 
@@ -32,7 +41,7 @@ export const iRacingReducers = (state = {}, action) => {
             };
         }
 
-        if (driverDaoHelper.hasDriverInfoData(data)) {
+        if (iRacingMessageHelper.hasDriverData(data)) {
             newState = {
                 ...newState,
                 [TYPES.ALL_DRIVERS]: diverMapper.convert(
@@ -54,7 +63,9 @@ export const iRacingReducers = (state = {}, action) => {
         if (iRacingMessageHelper.hasSessionData(data)) {
             newState = {
                 ...newState,
-                [TYPES.SESSION]: telemetryMapper.convert(data)
+                [TYPES.SESSION]: sessionMapper.convert(
+                    sessionDaoHelper.getCurrentSessionData(data)
+                )
             };
         }
 

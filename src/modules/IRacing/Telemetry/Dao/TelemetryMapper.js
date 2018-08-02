@@ -1,7 +1,7 @@
 // @flow
 import TelemetryDto from 'src/modules/IRacing/Telemetry/TelemetryDto';
 import type PedalsTelemetryMapper from 'src/modules/IRacing/Telemetry/Pedals/PedalsTelemetryMapper';
-import GearsTelemetryMapper from './Gear/GearsTelemetryMapper';
+import GearsTelemetryMapper from '../Gear/GearsTelemetryMapper';
 import SpeedTelemetryMapper from 'src/modules/IRacing/Telemetry/Speed/SpeedTelemetryMapper';
 
 export default class TelemetryMapper {

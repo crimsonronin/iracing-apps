@@ -6,6 +6,10 @@ import {DATA} from 'src/modules/IRacing/IRacingServiceConstants';
  * @deprecated
  */
 export default class IRacingMessageHelper {
+    hasDriverData(data: Object): boolean {
+        return has(data, DATA.DRIVER);
+    }
+
     hasTelemetryData(data: Object): boolean {
         return has(data, DATA.TELEMETRY);
     }

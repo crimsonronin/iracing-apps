@@ -1,8 +1,10 @@
 // @flow
 export default class DriverDto {
     _id: string;
+    _sessionId: string;
     _username: string;
     _nickname: string;
+    _avatar: string;
     _iRating: number;
     _license: number;
     _teamName: string;
@@ -14,6 +16,14 @@ export default class DriverDto {
 
     set id(value: string) {
         this._id = value;
+    }
+
+    get sessionId(): string {
+        return this._sessionId;
+    }
+
+    set sessionId(value: string) {
+        this._sessionId = value;
     }
 
     get username(): string {
@@ -30,6 +40,15 @@ export default class DriverDto {
 
     set nickname(value: string) {
         this._nickname = value;
+    }
+
+    get avatar(): string {
+        // return this._avatar;
+        return `http://members.iracing.com/membersite/member/GetProfileImage?custid=${this._id}`
+    }
+
+    set avatar(value: string) {
+        this._avatar = value;
     }
 
     get iRating(): number {

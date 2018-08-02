@@ -1,9 +1,22 @@
 // @flow
-import {applyMiddleware, compose, createStore} from 'redux';
-import {reducers} from 'src/modules/Store/ReducerFactory';
+import {applyMiddleware, createStore} from 'redux';
+import {createLogger} from 'redux-logger';
+import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import {reducers} from 'src/modules/Store/ReducerFactory';
 import {webSocketMiddleware} from 'src/modules/Utils/webSocketMiddleware';
+import {ENV} from 'src/modules/Utils/ApplicationContstants';
+import config from 'src/config/config';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const middleware = applyMiddleware(thunk, webSocketMiddleware);
-export const store = createStore(reducers, /* preloadedState, */ composeEnhancers(middleware));
+let middlewareConfig = [thunk, webSocketMiddleware];
+let middleware;
+
+if (config.env === ENV.DEVELOPMENT) {
+    middlewareConfig.push(createLogger());
+    middleware = composeWithDevTools(applyMiddleware(...middlewareConfig));
+} else {
+    middleware = applyMiddleware(...middlewareConfig);
+}
+
+
+export const store = createStore(reducers, /* preloadedState, */ middleware);

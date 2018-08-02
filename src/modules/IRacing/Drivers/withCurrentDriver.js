@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {NAMESPACE, TYPES} from 'src/modules/IRacing/iRacingReducers';
 import withWebSocket from 'src/modules/Utils/withWebSocket';
 import type DriverDto from 'src/modules/IRacing/Drivers/DriverDto';
-import {getCurrentDriver} from 'src/modules/IRacing/Drivers/driverActions';
+import {getCurrentDriver} from 'src/modules/IRacing/Drivers/Dao/driverActions';
 
 export const mapStateToProps = (state: any) => ({
     currentDriver: state[NAMESPACE][TYPES.CURRENT_DRIVER]
