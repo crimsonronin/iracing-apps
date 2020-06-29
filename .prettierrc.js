@@ -1,9 +1,7 @@
-// Prettier configuration
-// https://prettier.io/docs/en/configuration.html
 module.exports = {
-    singleQuote: true,
-    trailingComma: 'all',
-    arrowParens: 'always',
-    tabWidth: 4,
-    useTabs: false,
+  trailingComma: 'all',
+  tabWidth: 2,
+  printWidth: 120,
+  semi: true,
+  singleQuote: true,
 };
